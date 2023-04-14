@@ -41,12 +41,10 @@ app.use("/login", userLogin);
 const userRegister = require("./routes/Register");
 app.use("/register", userRegister);
 
-
 // *************** Dashboard  ***************
 
 const Dashboard = require("./routes/Dashboard");
 app.use("/dashborad", Dashboard);
-
 
 // *************** Admin Dashboard  ***************
 
@@ -57,6 +55,16 @@ app.use("/admin", admin);
 
 const doctor = require("./routes/Doctor");
 app.use("/doctor", doctor);
+
+// ***************Chat  ***************
+
+const chat = require("./routes/Chat");
+app.use("/chat", chat);
+
+// ***************Blog  ***************
+
+const blog = require("./routes/blog");
+app.use("/", blog);
 
 // ***************  APP LISTEN ***************
 

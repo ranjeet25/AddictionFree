@@ -1,0 +1,11 @@
+html {
+  scroll-behavior: smooth;
+  font-family: Helvetica, sans-serif, Arial;
+}
+
+body {
+  margin: 0 auto;
+
+  /* background: url("https://cdn.shopify.com/s/files/1/0012/4590/4996/articles/phone-addiction-shocking_1200x1200.jpg?v=1550606054"); */
+  background: rgba(31, 120, 253, 0.855);
+}
