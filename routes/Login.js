@@ -7,16 +7,15 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/login.html"));
 });
 
-
 var userdata = new Object();
 
 router.post("/", async function (req, res) {
   try {
     // check if the user exists
     const user = await UserModel.findOne({ username: req.body.username });
-    userdata= user
+    userdata = user;
 
-    console.log(userdata)
+    console.log(userdata);
     // const userdata = await UserModel.find({ username: req.body.username },role);
 
     if (user) {
@@ -24,31 +23,27 @@ router.post("/", async function (req, res) {
       if (result) {
         if (user.role === "Admin") {
           res.sendFile(path.join(__dirname, "../pages/admin.html"));
-        }
-        else if (user.role === "Doctor") {
+        } else if (user.role === "Doctor") {
           res.sendFile(path.join(__dirname, "../pages/doctor.html"));
-        }
-        else {
+        } else {
           res.sendFile(path.join(__dirname, "../pages/dashboard.html"));
         }
       } else {
-        res.status(400).json({ error: "password doesn't match" });
+        res.sendFile(path.join(__dirname, "../pages/wrong.html"));
       }
     } else {
-      res.status(400).json({ error: "User doesn't exist" });
+      res.sendFile(path.join(__dirname, "../pages/wrong.html"));
     }
   } catch (error) {
     res.status(400).json({ error });
   }
 });
 
-
-
-router.get('/patients', async(req, res) => {
+router.get("/patients", async (req, res) => {
   try {
     const patients = await UserModel.find({ role: "Patient" });
     res.status(200).send({
-      patients
+      patients,
     });
   } catch (err) {
     console.error(err);
@@ -56,26 +51,20 @@ router.get('/patients', async(req, res) => {
   }
 });
 
-
-router.get('/doctor', async(req, res) => {
+router.get("/doctor", async (req, res) => {
   try {
     const doctor = await UserModel.find({ role: "Doctor" });
     res.status(200).send({
-      doctor
+      doctor,
     });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error retrieving Doctor from database.");
-  }
+  }
 });
 
-
-router.get('/getsingle', (req, res) => {
-  res.status(200).send(
-    
-      userdata
-   
-   )
-})
+router.get("/getsingle", (req, res) => {
+  res.status(200).send(userdata);
+});
 
 module.exports = router;

@@ -14,6 +14,8 @@ router.post("/appointment", async (req, res) => {
     gender: req.body.gender,
     date: req.body.date,
     time: req.body.time,
+    doctorname: req.body.doctorname,
+    addiction: req.body.addiction,
     description: req.body.description,
     payment_id: req.body.payment_id,
   }).then((result) => {
@@ -22,6 +24,7 @@ router.post("/appointment", async (req, res) => {
   });
   // res.send("Data Submited");
   res.sendFile(path.join(__dirname, "../pages/dashboard.html"));
+  res.sendFile(path.join(__dirname, "../pages/chat.html"));
   console.log(req.body.time);
   console.log(req.body.description);
 });

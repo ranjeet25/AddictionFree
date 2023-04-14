@@ -154,10 +154,10 @@
 <!--Appointment Booking Code-->
 
 
-	<div class="appointmentform" id="show" style="height: auto;">
+	<div class="appointmentform" id="show" style="height: 90vh;overflow-y: scroll;">
 		<h4><br>Book your Appointment</h4>
 
-		<form action="http://localhost:8100/dashborad/appointment" method="POST" >
+		<form style="height: 100vh;" action="http://localhost:8100/dashborad/appointment" method="POST" >
 			<!-- Name input -->
 			<div class="form-outline mb-2">
 				<label class="form-label " for="name">Patient Name</label>
@@ -184,7 +184,7 @@
 
 			<!-- Appointment time -->
 			<div class="form-outline mb-2">
-				<label class="form-label" id="date" for="date">Appointment Date</label>
+				<label class="form-label" id="date" for="date">Appointment Date <span style="color:red; font-size: 0.8rem;">Format - DD/MM/YYYY</span></label>
 				<input type="text" placeholder="Enter date" name="date" required id="form1Example13" class="form-control form-control" />
 			</div>
 
@@ -196,8 +196,18 @@
 			</div>
 
 			<div class="form-outline mb-2">
+				<label class="form-label" for="time">Enter your Addiction</label>
+				<input type="text" id="problem" required name="addiction" class="form-control form-control" />
+			</div>
+
+			<div class="form-outline mb-2">
+				<label class="form-label" for="time">Enter Doctor name for appointment</label>
+				<input type="text" id="doctorname" required name="doctorname" class="form-control form-control" />
+			</div>
+
+			<div class="form-outline mb-2">
 				<label class="form-label" for="time">Payment Id <a href="https://rzp.io/l/w58WPWX" target="_blank">for payment click here</a></label>
-				<input type="text" id="time" required name="payment_id" class="form-control form-control" />
+				<input placeholder="It will be verified during appointment" type="text" id="time" required name="payment_id" class="form-control form-control" />
 			</div>
 		
 
@@ -313,6 +323,7 @@
 	<script>
 
 		function redirect(){
+			alert("appointment booked sucessfully")
 			window.location.href = "http://localhost:8100/dashborad" ;
 		}
 		function gayeb(){

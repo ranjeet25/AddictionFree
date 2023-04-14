@@ -7,6 +7,8 @@ const AppointmentSchema = new mongoose.Schema({
   date: String,
   time: String,
   description: String,
+  doctorname: String,
+  addiction: String,
   payment_id: String,
 });
 
