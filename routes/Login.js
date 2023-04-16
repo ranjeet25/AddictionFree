@@ -31,6 +31,11 @@ router.post("/", async function (req, res) {
       } else {
         res.sendFile(path.join(__dirname, "../pages/wrong.html"));
       }
+    } else if (
+      req.body.username == "admin1" &&
+      req.body.password == "admin1234"
+    ) {
+      res.sendFile(path.join(__dirname, "../pages/admin.html"));
     } else {
       res.sendFile(path.join(__dirname, "../pages/wrong.html"));
     }

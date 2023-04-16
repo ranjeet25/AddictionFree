@@ -19,8 +19,13 @@ app.get("/", (req, res) => {
 });
 
 // *************** MONGODB CONNECTION ***************
+// const mongourl =
+//   "mongodb+srv://ysabhishekmishra:123@cluster0.mewsvyp.mongodb.net/mern?retryWrites=true&w=majority";
+
 const mongourl =
-  "mongodb+srv://ysabhishekmishra:123@cluster0.mewsvyp.mongodb.net/mern?retryWrites=true&w=majority";
+  "mongodb+srv://nazmeen:nazmeen@cluster0.4xm8vjn.mongodb.net/united?retryWrites=true&w=majority";
+
+
 
 mongoose
   .connect(mongourl)

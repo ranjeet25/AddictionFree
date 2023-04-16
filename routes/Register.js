@@ -8,19 +8,28 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  UserModel.create({
-    name: req.body.name,
-    age: req.body.age,
-    gender: req.body.gender,
-    role: req.body.role,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
+  UserModel.findOne({
+    $or: [{ username: req.body.username }, { email: req.body.email }],
   }).then((result) => {
-    res.status(200);
+    console.log(result);
+    if (result) {
+      // res.sendFile(path.join(__dirname, "../pages/submit.html"));
+      res.send("<h4>User Already Exits !!</h4>");
+    } else {
+      UserModel.create({
+        name: req.body.name,
+        age: req.body.age,
+        gender: req.body.gender,
+        role: req.body.role,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+      }).then((result) => {
+        res.status(200);
+        res.sendFile(path.join(__dirname, "../pages/submit.html"));
+      });
+    }
   });
-
-  res.sendFile(path.join(__dirname, "../pages/submit.html"));
 });
 
 module.exports = router;
