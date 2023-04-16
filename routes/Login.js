@@ -20,6 +20,7 @@ router.post("/", async function (req, res) {
 
     if (user) {
       const result = req.body.password === user.password;
+
       if (result) {
         if (user.role === "Admin") {
           res.sendFile(path.join(__dirname, "../pages/admin.html"));
@@ -59,6 +60,7 @@ router.get("/patients", async (req, res) => {
 router.get("/doctor", async (req, res) => {
   try {
     const doctor = await UserModel.find({ role: "Doctor" });
+
     res.status(200).send({
       doctor,
     });

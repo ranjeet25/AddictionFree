@@ -59,7 +59,7 @@
             <!-- <img
               src="https://as2.ftcdn.net/jpg/03/64/21/11/220_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
             /> -->
-            <h4>Nazmeen khan</h4>
+            <h6>Username : <span id="doctor">Mr Doctor</span></h6>
             <p>MBBS Doctor</p>
             <p>Addiction specialist</p>
             <div class="per">
@@ -133,5 +133,10 @@
       // Setting innerHTML as tab variable
       document.getElementById("patient").innerHTML = tabus;
     }
+
+    document.getElementById("doctor").innerHTML =
+      sessionStorage.getItem("username");
+
+    console.log(sessionStorage.getItem("username"));
   </script>
 </html>
